@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#stock-total{
+    background-color: red;
+    padding: 1rem;
+}
+
+.stock{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-transform: uppercase;
+
+}

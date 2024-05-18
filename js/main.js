@@ -28,5 +28,17 @@ function calcularTotalMonto() {
     let total = stockTotal.reduce((acc, final) => acc + final.monto, 0);
     return total;
 }
+
+let contenedorStockTotal = document.querySelector("#stock-total");
+
+stockTotal.forEach((stock) => {
+    let div = document.createElement("div");
+    div.classList.add("stock");
+    div.innerHTML = `
+        <p class='stock-modelo'>${stock.modelo}</p>
+        <p class='stock-monto'>$${stock.monto}</p>
+    `;
+    contenedorStockTotal.append(div);
+})
 console.log("Stock Total", stockTotal);
 console.log("Total de precios de celulares", calcularTotalMonto());
