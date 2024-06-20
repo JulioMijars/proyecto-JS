@@ -85,7 +85,7 @@ h2 {
   
   .carrito-footer {
     width: 100%;
-    background-color: #eee;
+    background-color: red;
     padding: 20px;
     color: #191919;
   }
@@ -98,5 +98,7 @@ h2 {
   
   #total {
     padding: 20px;
-    text-align: right;
+    text-align: center;
+    gap: 10px;
+    
   }

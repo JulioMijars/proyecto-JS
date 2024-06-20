@@ -1,13 +1,11 @@
-// tienda de telefonos
-
-
+// tienda
 
 
 let telefonos = [
     {
         id: 'iph2809789-09' ,
         name: 'Iphone 15' ,
-        precio: 1500,
+        price: 1500,
         img: 'img/iphone15.jfif' ,
         descripcion: 'Iphone 15 nuevo'
 
@@ -15,17 +13,41 @@ let telefonos = [
     {
         id: 'sam2480978k-0o' ,
         name: 'Samsung S24 ultra' ,
-        precio: 1800,
+        price: 1800,
         img: 'img/samsung24.jfif' ,
         descripcion: 'Samsung S24 nuevo'
     },
     {
         id: 'xiaohjkshw8-06' ,
         name: 'Xiaomi 14' ,
-        precio: 1300,
+        price: 1300,
         img: 'img/xiaomi14.jfif' ,
         descripcion: 'Xiaomi 14 nuevo'
-    }
+    },
+    {
+        id: 'iphone12-3456',
+        name: 'iPhone 12',
+        price: 1500,
+        img: 'img/lenovo.jpg',
+        descripcion: 'iPhone 12 en color negro'
+    },
+    {
+        id: 'samsung-galaxy-s21-abc123',
+        name: 'Samsung Galaxy S21',
+        price: 1100,
+        img: 'img/s21.jpg',
+        descripcion: 'Samsung Galaxy S21 con cámara de 108 MP'
+    },
+    {
+      id: 'lenovo-thinkpad-x1-xyz789',
+      name: 'Lenovo ThinkPad X1 Carbon',
+      price: 1800,
+      img: 'img/iphone12.jpg',
+      descripcion: 'Portátil Lenovo ThinkPad X1 Carbon ultraligero'
+  }
+  
+    
+    
 ]
 
 let tlfns = localStorage.setItem('productos', JSON.stringify(telefonos))
@@ -41,7 +63,7 @@ function mostrarTelefonos(){
             <div class="card-product">
                 <h3>${product.name}</h3>
                 <p>${product.descripcion}</p>
-                <b>${product.precio}</b>
+                <b>${product.price}</b>
                 <button class="agregar-carrito" data-id=${product.id}>agregar</button>
             </div>
     </div>
@@ -51,6 +73,13 @@ function mostrarTelefonos(){
 
     document.querySelectorAll('.agregar-carrito').forEach(btn => {
         btn.addEventListener('click', () => {
+          Toastify({
+            text: "Producto Agregado.",
+            offset: {
+              x: 50, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+              y: 50 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+            },
+          }).showToast();
           const productoID = btn.getAttribute('data-id');
           agregarAlCarrito(productoID);
         });
@@ -104,6 +133,10 @@ function agregarAlCarrito(productoID) {
   
     document.querySelectorAll('.eliminar-carrito').forEach(btn => {
       btn.addEventListener('click', () => {
+        Swal.fire({
+          title: "Producto eliminado.",
+          icon: "success"
+        });
         let btnDelete = btn.getAttribute('data-id');
         eliminarDelCarrito(btnDelete);
       });
@@ -121,4 +154,10 @@ function agregarAlCarrito(productoID) {
     localStorage.setItem('carrito', JSON.stringify(nuevoCarrito));
     mostrarCarrito();
   }
+
+
+
+
+
 mostrarTelefonos()
+mostrarCarrito()
