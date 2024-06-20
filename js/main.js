@@ -28,7 +28,7 @@ let telefonos = [
         id: 'iphone12-3456',
         name: 'iPhone 12',
         price: 1500,
-        img: 'img/lenovo.jpg',
+        img: 'img/iphone12.jpg',
         descripcion: 'iPhone 12 en color negro'
     },
     {
@@ -42,7 +42,7 @@ let telefonos = [
       id: 'lenovo-thinkpad-x1-xyz789',
       name: 'Lenovo ThinkPad X1 Carbon',
       price: 1800,
-      img: 'img/iphone12.jpg',
+      img: 'img/lenovo.jpg',
       descripcion: 'Portátil Lenovo ThinkPad X1 Carbon ultraligero'
   }
   
