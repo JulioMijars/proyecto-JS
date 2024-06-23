@@ -1,56 +1,17 @@
 // tienda
 
+let telefonos = [];
 
-let telefonos = [
-    {
-        id: 'iph2809789-09' ,
-        name: 'Iphone 15' ,
-        price: 1500,
-        img: 'img/iphone15.jfif' ,
-        descripcion: 'Iphone 15 nuevo'
+fetch("./js/productos.json")
+  .then(response => response.json())
+  .then(data => {
+    telefonos = data;
+    localStorage.setItem('productos', JSON.stringify(telefonos));
+    mostrarTelefonos();
+  })
+  .catch(error => console.error('Error al obtener los productos:', error));
 
-    },
-    {
-        id: 'sam2480978k-0o' ,
-        name: 'Samsung S24 ultra' ,
-        price: 1800,
-        img: 'img/samsung24.jfif' ,
-        descripcion: 'Samsung S24 nuevo'
-    },
-    {
-        id: 'xiaohjkshw8-06' ,
-        name: 'Xiaomi 14' ,
-        price: 1300,
-        img: 'img/xiaomi14.jfif' ,
-        descripcion: 'Xiaomi 14 nuevo'
-    },
-    {
-        id: 'iphone12-3456',
-        name: 'iPhone 12',
-        price: 1500,
-        img: 'img/iphone12.jpg',
-        descripcion: 'iPhone 12 en color negro'
-    },
-    {
-        id: 'samsung-galaxy-s21-abc123',
-        name: 'Samsung Galaxy S21',
-        price: 1100,
-        img: 'img/s21.jpg',
-        descripcion: 'Samsung Galaxy S21 con cámara de 108 MP'
-    },
-    {
-      id: 'lenovo-thinkpad-x1-xyz789',
-      name: 'Lenovo ThinkPad X1 Carbon',
-      price: 1800,
-      img: 'img/lenovo.jpg',
-      descripcion: 'Portátil Lenovo ThinkPad X1 Carbon ultraligero'
-  }
-  
-    
-    
-]
 
-let tlfns = localStorage.setItem('productos', JSON.stringify(telefonos))
 
 function mostrarTelefonos(){
     let contenedor = document.querySelector('#telefonos');
